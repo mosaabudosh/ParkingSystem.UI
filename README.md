@@ -19,6 +19,20 @@ The solution is organized as a frontend application integrated with a separate b
 | Backend | ASP.NET Core Web API | Business logic and REST API services |
 | Database | Microsoft SQL Server | Application data persistence |
 
+### System Architecture
+
+```mermaid
+flowchart TD
+    U["Customer / User"]
+    UI["ParkingSystem.UI - Angular SPA"]
+    API["ParkingSystem.Core - ASP.NET Core Web API"]
+    DB[("SQL Server Database")]
+
+    U --> UI
+    UI -->|"REST API / HTTP"| API
+    API -->|"Entity Framework Core"| DB
+```
+
 ### Related Backend
 
 The frontend communicates with:
