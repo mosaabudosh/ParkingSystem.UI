@@ -1,0 +1,64 @@
+.customer-dashboard-style {
+    margin: 2.75rem 1rem !important;
+    padding: 1rem !important;
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+}
+
+.parking-spot-card-style {
+    border: 1px solid #015fa9 !important;
+    border-radius: 5px !important;
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0.25rem !important;
+    text-align: center !important;
+    padding: 5px !important;
+    cursor: pointer !important;
+}
+
+.available-parking-spot-card-style {
+    background: rgb(74, 255, 90) !important;
+}
+
+input[type=number],
+input[type=text] {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    margin: 8px 0 !important;
+    display: inline-block !important;
+    border: 1px solid #ccc !important;
+    box-sizing: border-box !important;
+}
+
+.parking-spot-slots-style {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    margin: 10px 0 !important;
+}
+
+.parking-spot-slot-style {
+    border: 1px solid #015fa9 !important;
+    border-radius: 25px !important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+    margin: 3px !important;
+    padding: 3px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+}
+
+.parking-spot-slot-style:hover {
+    background: #015fa9 !important;
+    color: white !important;
+}
+
+.seleted-parking-spot-slot-style {
+    background: #015fa9 !important;
+    color: white !important;
+}
+
+.occupied-parking-spot-slot-style {
+    background: #015fa9 !important;
+    color: white !important;
+    opacity: 0.6 !important;
+}

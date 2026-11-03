@@ -1,0 +1,56 @@
+<div class="registration-form-style">
+    <form class="align-items-center" #form="ngForm" (ngSubmit)="form.valid && registration()">
+        <h2>Sign Up</h2>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <label for="fullName"><b>Full Name</b></label>
+                <input type="text" placeholder="Enter Full Name" name="fullName" required
+                    [(ngModel)]="registrationModel.fullName" #fullName="ngModel">
+                <label *ngIf="form.submitted && fullName?.errors?.['required']" class="not-valid"><b>Full Name is
+                        required</b></label>
+            </div>
+
+            <div class="row">
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required [(ngModel)]="registrationModel.email"
+                    #email="ngModel">
+                <label *ngIf="form.submitted && email?.errors?.['required']" class="not-valid"><b>Email is
+                        required</b></label>
+            </div>
+
+            <div class="row">
+                <label for="phone"><b>Phone</b></label>
+                <input type="number" placeholder="Enter Phone" name="phone" required
+                    [(ngModel)]="registrationModel.phone" #phone="ngModel">
+                <label *ngIf="form.submitted && phone?.errors?.['required']" class="not-valid"><b>Phone is
+                        required</b></label>
+            </div>
+
+            <div class="row">
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required
+                    [(ngModel)]="registrationModel.password" #password="ngModel">
+                <label *ngIf="form.submitted && password?.errors?.['required']" class="not-valid"><b>Password is
+                        required</b></label>
+            </div>
+
+            <div class="row">
+                <label for="repeatPassword"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="repeatPassword" required
+                    [(ngModel)]="registrationModel.repeatPassword" #repeatPassword="ngModel">
+                <label *ngIf="form.submitted && repeatPassword?.errors?.['required']" class="not-valid"><b>Repeat
+                        Password isrequired</b></label>
+            </div>
+
+            <p>By creating an account you agree to our <a>Terms & Privacy</a>.</p>
+
+            <div class="row justify-content-between">
+                <button type="button" (click)="onBack()" class="col-5 cancelbtn">Cancel</button>
+                <button type="submit" class="col-5 signupbtn">Sign Up</button>
+            </div>
+        </div>
+
+    </form>
+</div>

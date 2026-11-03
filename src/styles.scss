@@ -1,0 +1,130 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header-style {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    min-width: 100% !important;
+    height: 58px !important;
+    position: fixed !important;
+    padding: 10px !important;
+    z-index: 99999 !important;
+    cursor: pointer !important;
+    background-color: #015fa9 !important;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+.close-menu-side-menu-style {
+    top: 65px !important;
+    left: 0px !important;
+    position: absolute !important;
+    width: 3% !important;
+    min-height: 90vh !important;
+    border: 1px solid #015fa9 !important;
+    border-radius: 5px !important;
+    margin: 2px !important;
+
+    .menu-item-style {
+        margin: 5px !important;
+        padding: 5px !important;
+        cursor: pointer !important;
+    }
+
+    .menu-item-style:hover {
+        margin: 5px !important;
+        padding: 5px !important;
+        color: white !important;
+        background-color: #015fa9 !important;
+        border-radius: 5px !important;
+    }
+
+}
+
+.side-menu-style {
+    top: 65px !important;
+    left: 0px !important;
+    position: absolute !important;
+    width: 15% !important;
+    min-height: 90vh !important;
+    border: 1px solid #015fa9 !important;
+    border-radius: 5px !important;
+    margin: 2px !important;
+
+    .menu-item-style {
+        margin: 5px !important;
+        padding: 5px !important;
+        cursor: pointer !important;
+    }
+
+    .menu-item-style:hover {
+        margin: 5px !important;
+        padding: 5px !important;
+        color: white !important;
+        background-color: #015fa9 !important;
+        border-radius: 5px !important;
+    }
+}
+
+.contant-style {
+    top: 65px !important;
+    left: 16% !important;
+    position: absolute !important;
+    width: 83% !important;
+    min-height: 90vh !important;
+    border: 1px solid #015fa9 !important;
+    border-radius: 5px !important;
+    margin: 2px !important;
+}
+
+.close-menu-contant-style {
+    top: 65px !important;
+    left: 4% !important;
+    position: absolute !important;
+    width: 95% !important;
+    min-height: 90vh !important;
+    border: 1px solid #015fa9 !important;
+    border-radius: 5px !important;
+    margin: 2px !important;
+}
+
+.full-contant-style {
+    left: 0 !important;
+    right: 0 !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100vh !important;
+}
+
+.not-valid {
+    margin-left: 5px !important;
+    color: red !important;
+    font-size: 12px !important;
+}
+
+.custom-alert-style {
+    width: 95% !important;
+    margin: 80px 2.5% 0 2.5% !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
+
+    i {
+        font-size: 25px !important;
+        cursor: pointer !important;
+    }
+}

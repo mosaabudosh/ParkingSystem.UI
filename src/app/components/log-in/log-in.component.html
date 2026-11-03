@@ -1,0 +1,38 @@
+<div class="login-form-style">
+    <form class="align-items-center" #form="ngForm" (ngSubmit)="form.valid && signIn()">
+        <h2>Sign In</h2>
+        <div class="img-container">
+            <img src="assets/img/parking_system.png" alt="logo" class="logo">
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required [(ngModel)]="loginModel.email"
+                    #email="ngModel">
+                <label *ngIf="form.submitted && email?.errors?.['required']" class="not-valid"><b>Email is
+                        required</b></label>
+            </div>
+
+            <div class="row">
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required
+                    [(ngModel)]="loginModel.password" #password="ngModel">
+                <label *ngIf="form.submitted && password?.errors?.['required']" class="not-valid"><b>Password is
+                        required</b></label>
+            </div>
+
+            <div class="row">
+                <label *ngIf="errorMessage" class="not-valid"><b>{{errorMessage}}</b></label>
+            </div>
+
+            <button type="submit">Login</button>
+            <div class="row align-items-end">
+                <div class="col" (click)="onRegistration()">
+                    <span class="psw"><a>Registration</a></span>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

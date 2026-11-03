@@ -1,0 +1,46 @@
+<body>
+  <div *ngIf="isViewLayout || isCustomerLayout" class="row header-style">
+    <div class="col align-self-start" (click)="onMenuClick()">
+      <i *ngIf="isViewLayout" class="bi bi-list"></i>
+    </div>
+    <div class="col-10">
+      <h4>Parking System</h4>
+    </div>
+    <div class="col">
+      <i class="bi bi-bell-fill">
+        <span *ngIf="notificationCount" class="badge rounded-pill bg-danger">{{ notificationCount }}</span>
+      </i>
+    </div>
+    <div class="col" (click)="checkTheDuration()">
+      <i class="bi bi-database-fill-check"></i>
+    </div>
+    <div class="col" (click)="onSignOut()">
+      <i class="bi bi-box-arrow-right"></i>
+    </div>
+  </div>
+
+  <div *ngIf="isViewLayout" [ngClass]="isClosedMenu ? 'close-menu-side-menu-style' : 'side-menu-style'">
+    <div class="row menu-item-style" *ngFor="let sideMenu of sideMenus; index as i;" (click)="sideMenu.command()">
+      <div class="col-1 align-self-start">
+        <i [class]="sideMenu.icon"></i>
+      </div>
+      <div *ngIf="!isClosedMenu" class="col align-self-start">
+        {{sideMenu.label}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="viewMessage" class="row alert alert-primary custom-alert-style" role="alert">
+    <div class="col-11">
+      {{notificationMessage}}
+    </div>
+    <div class="col-1" (click)="hideMessage()">
+      <i class="bi bi-x"></i>
+    </div>
+  </div>
+
+  <div [ngClass]="isViewLayout ? (isClosedMenu ? 'close-menu-contant-style' : 'contant-style') : 'full-contant-style'">
+    <router-outlet></router-outlet>
+  </div>
+
+</body>

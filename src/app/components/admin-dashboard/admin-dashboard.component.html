@@ -1,0 +1,31 @@
+<div class="not-valid-bookings-style">
+    <div class="row text-center container-header-style">
+        <div class="col">Name </div>
+        <div class="col">Date </div>
+        <div class="col">Minutes </div>
+        <div class="col">Action </div>
+
+    </div>
+
+    <div class="container-body-style">
+        <div *ngIf="notValidBookings?.length == 0" class="row text-center">
+            <div class="col">No Data Available</div> 
+        </div>
+        <div class="row text-center" *ngFor="let notValidBooking of notValidBookings; index as i;">
+            <div class="col">
+                {{notValidBooking.userFullName}}
+            </div>
+            <div class="col">
+                {{notValidBooking.date | date:'dd-mm-yyy'}}
+            </div>
+            <div class="col">
+                {{notValidBooking.minutes | number:'1.2-2'}}
+            </div>
+            <div class="col">
+                <button *ngIf="!notValidBooking.userHasFines" type="button" class="btn btn-danger"
+                    (click)="makeFineOfParkedNotValidBooking(notValidBooking)">Add Fine</button>
+            </div>
+        </div>
+    </div>
+
+</div>

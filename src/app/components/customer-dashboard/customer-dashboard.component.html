@@ -1,0 +1,68 @@
+<div class="customer-dashboard-style">
+    <div *ngFor="let parkingSpot of parkingSpots; index as i;">
+        <div class="parking-spot-card-style available-parking-spot-card-style" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop" (click)="fillDataForBooking(parkingSpot)">
+            <h3>{{parkingSpot.spotNumber}}</h3>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form class="align-items-center container" #form="ngForm" (ngSubmit)="createBooking()">
+                <div class="modal-header">
+                    <h5 *ngIf="step == 0" class="modal-title" id="staticBackdropLabel">Booking</h5>
+                    <h5 *ngIf="step == 1" class="modal-title" id="staticBackdropLabel">Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        (click)="clearDataBooking()"></button>
+                </div>
+                <div class="modal-body">
+                    <div *ngIf="step == 0">
+                        <div class="row parking-spot-slots-style">
+                            <div *ngFor="let parkingSpotSlot of parkingSpotSlots; index as i;"
+                                class="col parking-spot-slot-style" (click)="addSlotInBooking(parkingSpotSlot)"
+                                [ngClass]="{'seleted-parking-spot-slot-style' : getIsSelectedSlot(parkingSpotSlot.parkingSpotSlotId),'occupied-parking-spot-slot-style' : parkingSpotSlot.isOccupied}">
+                                <div>{{ parkingSpotSlot.startTime | date:'shortTime' }}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div *ngIf="step == 1">
+                        <p>Price Per Hour = {{pricePerHour}} JD</p>
+                        <br />
+
+                        <div class="row">
+                            <label for="amount"><b>Total Amount</b></label>
+                            <input type="number" name="amount" [readOnly]="true" [(ngModel)]="booking.payment.amount">
+                        </div>
+                        <div class="row">
+                            <label for="paymentMethod"><b>Payment Method</b></label>
+                            <select class="form-select" aria-label="Select Payment Method" name="paymentMethod" required
+                                [(ngModel)]="booking.payment.paymentMethod" #paymentMethod="ngModel">
+                                <option selected>Open this select menu</option>
+                                <option value="Cash">Cash</option>
+                                <option value="Visa">Visa</option>
+                                <option value="Click">Click</option>
+                                <option value="BankTransfer">Bank Transfer</option>
+                            </select>
+
+                            <label *ngIf="submitted && paymentMethod?.errors?.['required']" class="not-valid"><b>Payment
+                                    Method is
+                                    required</b></label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearDataBooking()">Close</button>
+                    <button *ngIf="step == 1 && !bookingService.isJustView && form.valid" data-bs-dismiss="modal" class="btn btn-primary"
+                        (click)="createBooking()">Confirm</button>
+                    <button *ngIf="step == 0 && !bookingService.isJustView" type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
